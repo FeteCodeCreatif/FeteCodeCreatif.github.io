@@ -1,0 +1,15 @@
+body {
+  padding-top: 10%;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+.starter-template h1 {
+	font-size: 4em;
+	margin-bottom:2%;
+}
+.starter-template p {
+	font-size: 2em;
+	margin-bottom: 3%;
+}
