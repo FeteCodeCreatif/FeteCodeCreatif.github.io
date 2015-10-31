@@ -1,9 +1,9 @@
-var gridSize = 75;
+var gridSize = 100;
 var hsize = 3;
 var wsize = 4;
 var w = gridSize*(wsize+2);
 var h = gridSize*(hsize+2);
-var pas = gridSize/25;
+var pas = gridSize/50;
 
 var coordx = [];
 var coordy = [];
@@ -17,7 +17,8 @@ var blanc;
 
 function setup() {
   colorMode(RGB, 255, 255, 255);
-  createCanvas(int(w), int(h));
+  var cnv = createCanvas(int(w), int(h));
+  cnv.parent("logo");
   background(255);
   strokeWeight(2);
   
@@ -28,6 +29,7 @@ function setup() {
 	c[2] = color(255, 0, 60);
 	c[3] = color(255, 255, 255);
 
+
   for(var k = 0 ; k < wsize ; k++){
     coordx[k] = gridSize*(k+1);
   }
@@ -35,10 +37,15 @@ function setup() {
     coordy[l] = gridSize*(l+1);
   }
 
-  bleu = new Agent(coordx[int(random(coordx.length))], coordy[int(random(coordy.length))], c[0], 10);
-  jaune = new Agent(coordx[int(random(coordx.length))], coordy[int(random(coordy.length))], c[1], 10);
-  magenta = new Agent(coordx[int(random(coordx.length))], coordy[int(random(coordy.length))], c[2], 10);
-  blanc = new Agent(coordx[int(random(coordx.length))], coordy[int(random(coordy.length))], c[3], 14);
+  textAlign(LEFT, BASELINE);
+
+  bleu = new Agent(coordx[int(random(coordx.length))], coordy[int(random(coordy.length))], c[0], 10, "bleu");
+  jaune = new Agent(coordx[int(random(coordx.length))], coordy[int(random(coordy.length))], c[1], 10, "jaune");
+  magenta = new Agent(coordx[int(random(coordx.length))], coordy[int(random(coordy.length))], c[2], 10, "rouge");
+  blanc = new Agent(coordx[int(random(coordx.length))], coordy[int(random(coordy.length))], c[3], 14, "invisible");
+
+  var divtmp = select("#coordWrapper");
+  divtmp.style("left", 0+"px").style("width", w+"px").style("height", h+"px");
 }
 
 function draw() {
@@ -50,7 +57,7 @@ function draw() {
   
 }
 
-var Agent = function(x, y, c, r) {
+var Agent = function(x, y, c, r, n) {
 	var posx;
   var posy;
   var rad;
@@ -60,6 +67,8 @@ var Agent = function(x, y, c, r) {
   var tmp;
   var col;
   var self = this;
+  var name = n;
+  var coordP = createP('').id(name).addClass("coords").parent("coordPWrapper");
   
   console.log(x+" "+y+" "+r);
   
@@ -146,6 +155,12 @@ var Agent = function(x, y, c, r) {
     //stroke(255);
     fill(col);
     ellipse(posx, posy, rad, rad);
+    
+
+    if(frameCount%5 == 0){
+      coordP.style("color",col)
+      coordP.html("("+posx+", "+posy+ ")");
+    }
   }
 
   this.run = function() {

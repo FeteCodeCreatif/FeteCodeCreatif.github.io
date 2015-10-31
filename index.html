@@ -8,7 +8,7 @@
     <meta name="description" content="Le 28 et 29 Novembre au Centre Pompidou - L'art et la culture du code, dans un lieu de création">
     <meta name="author" content="">
 
-    <title>Fête du Code Créatif - Bienvenue</title>
+    <title>Fête du Code Créatif - Le 28 et 29 Novembre au Centre Pompidou - L'art et la culture du code, dans un lieu de création</title>
 
     <!-- Bootstrap core CSS -->
     <link href="dist/css/bootstrap.min.css" rel="stylesheet">
@@ -40,12 +40,16 @@
   <body>
     <div class="container">
       <div class="starter-template">
-        <div id="defaultCanvas"></div>
+
+<div id="wrapframe">  <iframe class="logo" src="logo/index.html"></iframe>
+        </div>
+
+
         <h1>Fête du Code Créatif</h1>
         <p class="lead">Le 28 et 29 Novembre au Centre Pompidou <br/>
         L'art et la culture du code, dans un lieu de création</p>
       
-        <!-- Begin MailChimp Signup Form -->
+        <!-- Begin MsailChimp Signup Form -->
         <div id="mc_embed_signup">
         <form action="http://jorisrenaud.us10.list-manage.com/subscribe/post?u=82cb3c18d2033b551873a96ae&amp;id=a96854cb04" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="form-inline" target="_blank" novalidate>
           <input type="email" value="" name="EMAIL" class="form-control input-lg" id="exampleInputEmail1" placeholder="email@example.co" required>
@@ -60,16 +64,37 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+
     <script src="dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
-    <script type='text/javascript'>
-    //console.info(document.getElementById('logo'));
-    //console.info(typeof c);
-    //document.body.appendChild(c);
-    console.info(document.getElementById('defaultCanvas'));
-    //document.getElementById('logo').appendChild();
-      //$('#defaultCanvas').insertAfter('#logo');
-    </script>
+
+<style type="text/css">
+#wrapframe {  
+    width: 300px;
+    height: 300px;
+    padding: 0;
+    overflow: hidden;
+}
+iframe.logo {  
+    -ms-zoom: 0.5;
+    -ms-transform-origin: 0 0;
+    -moz-transform: scale(0.5);
+    -moz-transform-origin: 0px 50px;
+    -o-transform: scale(0.5);
+    -o-transform-origin: 0px 50px;
+    -webkit-transform: scale(0.5);
+    -webkit-transform-origin: 0 0;
+}
+iframe.logo {
+    width: 600px;
+    height: 500px;
+    overflow: hidden;
+    border: hidden;
+}
+</style>
+
+    
   </body>
 </html>
