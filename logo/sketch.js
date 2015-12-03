@@ -1,4 +1,4 @@
-var gridSize = 100;
+var gridSize = 37.5;
 var hsize = 3;
 var wsize = 4;
 var w = gridSize*(wsize+2);
@@ -27,7 +27,7 @@ function setup() {
 	c[0] = color(130, 200, 230);
 	c[1] = color(255, 201, 52);
 	c[2] = color(255, 0, 60);
-	c[3] = color(255, 255, 255);
+	c[3] = color(255);
 
 
   for(var k = 0 ; k < wsize ; k++){
@@ -39,10 +39,10 @@ function setup() {
 
   textAlign(LEFT, BASELINE);
 
-  bleu = new Agent(coordx[int(random(coordx.length))], coordy[int(random(coordy.length))], c[0], 10, "bleu");
-  jaune = new Agent(coordx[int(random(coordx.length))], coordy[int(random(coordy.length))], c[1], 10, "jaune");
-  magenta = new Agent(coordx[int(random(coordx.length))], coordy[int(random(coordy.length))], c[2], 10, "rouge");
-  blanc = new Agent(coordx[int(random(coordx.length))], coordy[int(random(coordy.length))], c[3], 14, "invisible");
+  bleu = new Agent(coordx[int(random(coordx.length))], coordy[int(random(coordy.length))], c[0], Math.round(gridSize/10), "bleu");
+  jaune = new Agent(coordx[int(random(coordx.length))], coordy[int(random(coordy.length))], c[1], Math.round(gridSize/10), "jaune");
+  magenta = new Agent(coordx[int(random(coordx.length))], coordy[int(random(coordy.length))], c[2], Math.round(gridSize/10), "rouge");
+  blanc = new Agent(coordx[int(random(coordx.length))], coordy[int(random(coordy.length))], c[3], Math.round(gridSize/10+4), "invisible");
 
   var divtmp = select("#coordWrapper");
   divtmp.style("left", 0+"px").style("width", w+"px").style("height", h+"px");
@@ -70,7 +70,7 @@ var Agent = function(x, y, c, r, n) {
   var name = n;
   var coordP = createP('').id(name).addClass("coords").parent("coordPWrapper");
   
-  console.log(x+" "+y+" "+r);
+  //console.log(x+" "+y+" "+r);
   
   posx = x;
   posy = y;
@@ -82,7 +82,7 @@ var Agent = function(x, y, c, r, n) {
   this.init = function() {
     if (!once) {
       this.direction();
-      println("INIT : "+choice);
+      //println("INIT : "+choice);
       once = true;
     }
   }
@@ -159,7 +159,7 @@ var Agent = function(x, y, c, r, n) {
 
     if(frameCount%5 == 0){
       coordP.style("color",col)
-      coordP.html("("+posx+", "+posy+ ")");
+      coordP.html("("+Math.round(posx)+", "+Math.round(posy)+ ")");
     }
   }
 
