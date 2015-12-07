@@ -19,7 +19,7 @@ function setup() {
   colorMode(RGB, 255, 255, 255);
   var cnv = createCanvas(int(w), int(h));
   cnv.parent("logo");
-  background(255, 255, 255, 0);
+  background(255, 255, 255);
   strokeWeight(2);
   
   frameRate(60);
@@ -27,7 +27,7 @@ function setup() {
 	c[0] = color(130, 200, 230);
 	c[1] = color(255, 201, 52);
 	c[2] = color(255, 0, 60);
-	c[3] = color(255, 255, 255, 0);
+	c[3] = color(255, 255, 255);
 
 
   for(var k = 0 ; k < wsize ; k++){
