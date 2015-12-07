@@ -64,16 +64,19 @@ a {
     display: none;
 }
 
-#logo {}
-
-.logWrapper {
+.logWrapper, #logo {
     position: relative;
-    float: left;
+}
+
+#logo {
+	width:225px;
+	margin:0 auto;
 }
 
 #coordWrapper {
     position: absolute;
     top: 0;
+    width: 100%;
 }
 
 #coordPWrapper {
@@ -90,56 +93,86 @@ a {
 /* header */
 
 #header {
-    width: 100%;
     padding: 0;
-/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+1,ffffff+100&amp;1+0,0.79+33,0+62 */
-background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(255,255,255,0.99) 1%, rgba(255,255,255,0.79) 33%, rgba(255,255,255,0) 62%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.99) 1%,rgba(255,255,255,0.79) 33%,rgba(255,255,255,0) 62%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.99) 1%,rgba(255,255,255,0.79) 33%,rgba(255,255,255,0) 62%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
-	z-index:1;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&amp;1+85,0.5+94,0.1+100,0+100 */
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 85%, rgba(255, 255, 255, 0.5) 94%, rgba(255, 255, 255, 0) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 85%, rgba(255, 255, 255, 0.5) 94%, rgba(255, 255, 255, 0) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 85%, rgba(255, 255, 255, 0.5) 94%, rgba(255, 255, 255, 0) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff', GradientType=0);
+    /* IE6-9 */
+    z-index: 1;
+    margin-bottom: 75px;
 }
 
 #title {
     font-weight: 500;
-    float: left;
-    line-height: 192px;
+    text-align: center;
 }
+
+/* STICKY */
+#main-nav.stick {
+	position:fixed;
+	top:0;
+	width:100%;
+	background-color:#FFF;
+	z-index:1;
+	line-height: 35px;
+}
+#main-nav-holder {
+	height:35px;
+}
+
+#main-nav.stick ul {
+	margin:0;
+}
+
 
 #main-nav {
-    float: left;
+    float: none;
 }
 
-nav ul {
+#main-nav ul li {
+    display: inline-block;
+}
+
+#main-nav ul li:not(:first-child):before {
+    content: " • ";
+}
+
+#main-nav ul {
     list-style-type: none;
     padding: 0;
-    padding-left: 35px;
+    padding-left: 0px;
+    text-align: center;
 }
 
-nav a {
+#main-nav a {
     font-size: 1.2em;
     font-weight: 500;
 }
 
-nav a:hover {
+#main-nav a:hover {
     color: #555;
     text-decoration: none;
 }
 
-nav a:hover:before {
+#main-nav a:hover:before {
     content: "_";
 }
 
-nav a:visited {
+#main-nav a:visited {
     color: #333;
     text-decoration: none;
 }
 
-nav a:focus {
+#main-nav a:focus {
     text-decoration: none;
 }
 
-nav a:focus:before {
+#main-nav a:focus:before {
     content: "_";
 }
 
@@ -148,23 +181,36 @@ nav a:focus:before {
 
 #content {
     padding-bottom: 215px;
+    padding-left: 25px;
+    padding-right: 25px;
 }
 
 .content-part {
-    padding-top: 215px;
-    min-height: 300px;
+	padding-top:40px;
+	margin-bottom:50px;
 }
 
 .content-part h2 {
     margin-top: 0;
 }
 
-#event {}
-
-#photos img {
-	width:100%;
-	height:auto;
+#event .baseline {
+    font-size: 1.3em;
 }
+
+#photos .grid-item {
+    width: 100%;
+    margin-bottom: 2%;
+}
+
+#photos .grid-item-width-2 {
+    width: 100%;
+}
+
+#photo .gutter-sizer {
+    width: 0%;
+}
+
 
 /*==========  Mobile First Method  ==========*/
 
@@ -180,12 +226,29 @@ nav a:focus:before {
 
 /* Extra Small Devices, Phones */
 
-@media only screen and (min-width: 480px) {}
+@media only screen and (min-width: 480px) {
+	#photos .grid-item {
+        width: 48%;
+    }
+    #photos .gutter-sizer {
+        width: 2%;
+    }
+    #photos .grid-item-width-2 {
+        width: 96%;
+    }
+}
 
 
 /* Small Devices, Tablets */
 
-@media only screen and (min-width: 768px) {}
+@media only screen and (min-width: 768px) {
+    #photos .grid-item {
+        width: 32%;
+    }
+    #photos .grid-item-width-2 {
+        width: 66%;
+    }
+}
 
 
 /* Medium Devices, Desktops */
@@ -194,6 +257,59 @@ nav a:focus:before {
     html {
         font-size: 1em;
     }
+    #top-header {
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+1,ffffff+100&amp;1+0,0.79+33,0+62 */
+        background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.99) 1%, rgba(255, 255, 255, 0.79) 45%, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0) 100%);
+        /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.99) 1%, rgba(255, 255, 255, 0.79) 45%, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0) 100%);
+        /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.99) 1%, rgba(255, 255, 255, 0.79) 45%, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0) 100%);
+        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff', GradientType=0);
+        /* IE6-9 */
+    }
+
+	#logo {
+		width:auto;
+		margin:0;
+	}
+
+
+    #title {
+        float: left;
+        line-height: 192px;
+        text-align: left;
+    }
+    #header {
+        background: none;
+        position: fixed;
+        width: 100%;
+        margin-bottom: 0px;
+    }
+    #main-nav {
+        float: left;
+        
+    }
+    #main-nav ul {
+    	padding-left: 35px;
+    }
+
+    #main-nav ul li {
+        display: block;
+        text-align: left;
+    }
+    #main-nav ul li:not(:first-child):before {
+        content: "";
+    }
+
+    .content-part {
+    	padding-top: 215px;
+    	margin-bottom:0px;
+    }
+
+    #main-nav-holder {
+		height:auto;
+	}
 }
 
 
