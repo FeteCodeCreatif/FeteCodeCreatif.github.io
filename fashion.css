@@ -46,6 +46,7 @@ small, .font_small {
 
 a {
     color: #333;
+    text-decoration: underline;
 }
 
 
@@ -152,6 +153,7 @@ a {
 #main-nav a {
     font-size: 1.2em;
     font-weight: 500;
+    text-decoration: none;
 }
 
 #main-nav a:hover {
@@ -198,19 +200,37 @@ a {
     font-size: 1.3em;
 }
 
-#photos .grid-item {
+.grid-item {
     width: 100%;
     margin-bottom: 2%;
 }
 
-#photos .grid-item-width-2 {
+.grid-item-width-2 {
     width: 100%;
 }
 
-#photo .gutter-sizer {
+.gutter-sizer {
     width: 0%;
 }
 
+/* ATELIERS */
+
+.atelier-card {
+	background-color:#F0F0F0;
+}
+
+.atelier-title {
+	margin-top:0;
+}
+
+.atelier-thumb {
+	width:100%;
+	height:auto;
+}
+
+.atelier-content {
+	padding:20px;
+}
 
 /*==========  Mobile First Method  ==========*/
 
@@ -227,13 +247,13 @@ a {
 /* Extra Small Devices, Phones */
 
 @media only screen and (min-width: 480px) {
-	#photos .grid-item {
+	.grid-item {
         width: 48%;
     }
-    #photos .gutter-sizer {
+    .gutter-sizer {
         width: 2%;
     }
-    #photos .grid-item-width-2 {
+    .grid-item-width-2 {
         width: 96%;
     }
 }
@@ -242,10 +262,10 @@ a {
 /* Small Devices, Tablets */
 
 @media only screen and (min-width: 768px) {
-    #photos .grid-item {
+    .grid-item {
         width: 32%;
     }
-    #photos .grid-item-width-2 {
+    .grid-item-width-2 {
         width: 66%;
     }
 }
